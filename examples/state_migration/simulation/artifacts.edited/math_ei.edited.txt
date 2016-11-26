@@ -1,0 +1,105 @@
+/*******************************************************************************
+ * Copyright (c) 2012, Lingkan Gong
+ * All rights reserved.
+ * 
+ * Redistribution and use in source and binary forms, with or without 
+ * modification, are permitted provided that the following conditions are met:
+ * 
+ *  * Redistributions of source code must retain the above copyright notice, 
+ *    this list of conditions and the following disclaimer.
+ *
+ *  * Redistributions in binary form must reproduce the above copyright notice, 
+ *    this list of conditions and the following disclaimer in the documentation 
+ *    and/or other materials provided with the distribution.
+ *
+ *  * Neither the name of the copyright holder(s) nor the names of its
+ *    contributor(s) may be used to endorse or promote products derived from this 
+ *    software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDERS BE LIABLE FOR ANY           
+ * DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+*******************************************************************************/
+
+`ifndef MATH_EI_SVH
+`define MATH_EI_SVH
+
+class math_ei extends rsv_error_injector#(virtual interface math_if);
+
+	// configuration table and parameters
+	`ovm_component_utils_begin(math_ei)
+	`ovm_component_utils_end
+
+	// new - constructor
+	function new (string name, ovm_component parent);
+		super.new(name, parent);
+	endfunction : new
+
+	// Define your own tasks to inject errors.
+	// You should not change the name or the prototype of these tasks.
+	// Possible injections include:
+	//
+	//     x, all-0, all-1, negate, random, no-change
+
+	extern virtual protected task inject_to_static_module(rsv_ei_trans tr);
+	extern virtual protected task inject_to_reconfigurable_module(rsv_ei_trans tr);
+	extern virtual protected task inject_to_internal_signals(rsv_ei_trans tr);
+	extern virtual protected task end_of_injecting_errors(rsv_ei_trans tr);
+
+endclass : math_ei
+
+task math_ei::inject_to_static_module (rsv_ei_trans tr);
+	// User-defined static error injection
+
+	// Enable the static error injection and wait until the 
+	// ei_vi.reconf_phase signal is asserted 
+
+	ei_vi.sei_en <= 1'b1;
+	@(posedge ei_vi.reconf_phase);
+	
+	// Drive undefined X values to all output signals
+	// of the reconfigurable module.
+
+	sei_vi.result           <= $urandom;
+	sei_vi.statistic        <= $urandom;
+
+endtask : math_ei::inject_to_static_module
+
+task math_ei::inject_to_reconfigurable_module (rsv_ei_trans tr);
+	// User-defined dynamic error injection
+
+	ei_vi.dei_en <= 1'b0;
+
+endtask : math_ei::inject_to_reconfigurable_module
+
+task math_ei::inject_to_internal_signals (rsv_ei_trans tr);
+	// User-defined internal error injection
+	
+	// Pass non-default parameter to the "rsv_iei_hdl_state" API. 
+	//     iei_sig_type = none, zero OR. x   
+	//     iei_mem_type = none, zero OR. rand
+
+	logic [7:0] old_rmid = ei_vi.active_module_id;
+	logic [7:0] new_rmid = tr.rmid;
+	
+	`rsv_execute_tcl(interp, $psprintf("ReSim::rsv_iei_hdl_state %s rm%0d x rand",rr_inst,old_rmid))
+	
+endtask : math_ei::inject_to_internal_signals
+
+task math_ei::end_of_injecting_errors (rsv_ei_trans tr);
+	// Default error injection clean up routine
+	
+endtask : math_ei::end_of_injecting_errors
+
+`endif // MATH_EI_SVH
+
+
+

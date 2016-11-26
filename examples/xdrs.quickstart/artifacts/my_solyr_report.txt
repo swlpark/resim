@@ -1,0 +1,13 @@
+==== Name: my_solyr 
+==== Time: 11:26:48, September 13, 2016 
++-----------------------------------+-------------------------+
+;     region_name / module_name     ;  rrid(hex) / rmid(hex)  ;
++-----------------------------------+-------------------------+
+;       my_region / maximum         ;       0x00 / 0x00       ;
+;       my_region / reverse         ;       0x00 / 0x01       ;
++-----------------------------------+-------------------------+
+
+rrid: reconfigurable region id
+rmid: reconfigurable modue id
+
+

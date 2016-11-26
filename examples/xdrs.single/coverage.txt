@@ -1,0 +1,135 @@
+# Merging file ./coverage/tdpr_demo.ucdb
+# Merging file ./coverage/tdpr_isolation.ucdb
+# Merging file ./coverage/tdpr_random_28.ucdb
+# Merging file ./coverage/tdpr_random_76.ucdb
+# Merging file ./coverage/tdpr_random_86.ucdb
+# Merging file ./coverage/tdpr_random_92.ucdb
+# Merging file ./coverage/tdpr_readback.ucdb
+# Merging file ./coverage/tdpr_retry.ucdb
+# Merging file ./coverage/tdpr_simple.ucdb
+# Merging file ./coverage/testplan.ucdb
+# Writing merged result to ./coverage/merged.ucdb
+# 
+# Applying tag commands...
+# Report created in ./coverage/covhtmlrpt/index.html
+# 
+# Ranking based on minimum number of tests.
+# Applying tag commands...
+# Ranking testplan path: "/testplan".
+# Ranking 9 test(s).
+# 
+# 1 coverage/tdpr_demo.ucdb (TEST_DPR_DEMO, metric 81.23)
+# User : glk  CPU Time : 0.38  Sim Time 80001000.00 ps
+# SimArgs : vsim -L mtiReSim -assertdebug -coverage -l ./xtests/tdpr_demo.txt -permit_unmatched_virtual_intf -sv_seed 0 -t ps -wlf ./xtests/tdpr_demo.wlf xdrs 
+#               Metric      Items   Covered%     Inc%
+# 
+#  Cover Groups/Points       4/12      68.65    68.65  *************       |
+#      CoverDirectives         28      53.57    53.57  **********          |
+#           Statements        167      96.40    96.40  ******************* |
+#             Branches        342      91.22    91.22  ******************  |
+#          Expressions         96      93.75    93.75  ******************  |
+#           Conditions         32      87.50    87.50  *****************   |
+#               States         48      87.50    87.50  *****************   |
+#          Transitions        100      76.00    76.00  ***************     |
+#         AssertPasses         51     100.00   100.00  ********************|
+#       FecExpressions        120      89.16    89.16  *****************   |
+#        FecConditions         44      90.90    90.90  ******************  |
+#      AssertSuccesses         51     100.00   100.00  ********************|
+# 
+# 2 coverage/tdpr_random_28.ucdb (TEST_DPR_RANDOM_28, metric 88.08)
+# User : glk  CPU Time : 3.36  Sim Time 800001000.00 ps
+# SimArgs : vsim -L mtiReSim -assertdebug -coverage -l ./xtests/tdpr_random_28.txt -permit_unmatched_virtual_intf -sv_seed 28 -t ps -wlf ./xtests/tdpr_random_28.wlf xdrs 
+#               Metric      Items   Covered%     Inc%
+# 
+#  Cover Groups/Points       4/12      93.93    25.28  ******************  |
+#      CoverDirectives         28     100.00    46.42  ********************|
+#           Statements        167     100.00     3.59  ********************|
+#             Branches        342     100.00     8.77  ********************|
+#          Expressions         96     100.00     6.25  ********************|
+#           Conditions         32     100.00    12.50  ********************|
+#               States         48     100.00    12.50  ********************|
+#          Transitions        100     100.00    24.00  ********************|
+#         AssertPasses         51     100.00     0.00  ********************|
+#       FecExpressions        120     100.00    10.83  ********************|
+#        FecConditions         44     100.00     9.09  ********************|
+#      AssertSuccesses         51     100.00     0.00  ********************|
+# 
+# 3 coverage/tdpr_simple.ucdb (TEST_DPR_SIMPLE, metric 91.42)
+# User : glk  CPU Time : 0.34  Sim Time 80001000.00 ps
+# SimArgs : vsim -L mtiReSim -assertdebug -coverage -l ./xtests/tdpr_simple.txt -permit_unmatched_virtual_intf -sv_seed 0 -t ps -wlf ./xtests/tdpr_simple.wlf xdrs 
+#               Metric      Items   Covered%     Inc%
+# 
+#  Cover Groups/Points       4/12     100.00     6.06  ********************|
+#      CoverDirectives         28     100.00     0.00  ********************|
+#           Statements        167     100.00     0.00  ********************|
+#             Branches        342     100.00     0.00  ********************|
+#          Expressions         96     100.00     0.00  ********************|
+#           Conditions         32     100.00     0.00  ********************|
+#               States         48     100.00     0.00  ********************|
+#          Transitions        100     100.00     0.00  ********************|
+#         AssertPasses         51     100.00     0.00  ********************|
+#       FecExpressions        120     100.00     0.00  ********************|
+#        FecConditions         44     100.00     0.00  ********************|
+#      AssertSuccesses         51     100.00     0.00  ********************|
+# 
+# 4 coverage/tdpr_isolation.ucdb (TEST_DPR_ISOLATION, metric 94.28)
+# User : glk  CPU Time : 0.30  Sim Time 60001000.00 ps
+# SimArgs : vsim -L mtiReSim -assertdebug -coverage -l ./xtests/tdpr_isolation.txt -permit_unmatched_virtual_intf -sv_seed 0 -t ps -wlf ./xtests/tdpr_isolation.wlf xdrs 
+#               Metric      Items   Covered%     Inc%
+# 
+#  Cover Groups/Points       4/12     100.00     0.00  ********************|
+#      CoverDirectives         28     100.00     0.00  ********************|
+#           Statements        167     100.00     0.00  ********************|
+#             Branches        342     100.00     0.00  ********************|
+#          Expressions         96     100.00     0.00  ********************|
+#           Conditions         32     100.00     0.00  ********************|
+#               States         48     100.00     0.00  ********************|
+#          Transitions        100     100.00     0.00  ********************|
+#         AssertPasses         51     100.00     0.00  ********************|
+#       FecExpressions        120     100.00     0.00  ********************|
+#        FecConditions         44     100.00     0.00  ********************|
+#      AssertSuccesses         51     100.00     0.00  ********************|
+# 
+# 5 coverage/tdpr_readback.ucdb (TEST_DPR_READBACK, metric 97.14)
+# User : glk  CPU Time : 0.36  Sim Time 60001000.00 ps
+# SimArgs : vsim -L mtiReSim -assertdebug -coverage -l ./xtests/tdpr_readback.txt -permit_unmatched_virtual_intf -sv_seed 0 -t ps -wlf ./xtests/tdpr_readback.wlf xdrs 
+#               Metric      Items   Covered%     Inc%
+# 
+#  Cover Groups/Points       4/12     100.00     0.00  ********************|
+#      CoverDirectives         28     100.00     0.00  ********************|
+#           Statements        167     100.00     0.00  ********************|
+#             Branches        342     100.00     0.00  ********************|
+#          Expressions         96     100.00     0.00  ********************|
+#           Conditions         32     100.00     0.00  ********************|
+#               States         48     100.00     0.00  ********************|
+#          Transitions        100     100.00     0.00  ********************|
+#         AssertPasses         51     100.00     0.00  ********************|
+#       FecExpressions        120     100.00     0.00  ********************|
+#        FecConditions         44     100.00     0.00  ********************|
+#      AssertSuccesses         51     100.00     0.00  ********************|
+# 
+# 6 coverage/tdpr_retry.ucdb (TEST_DPR_RETRY, metric 100.00)
+# User : glk  CPU Time : 0.34  Sim Time 60001000.00 ps
+# SimArgs : vsim -L mtiReSim -assertdebug -coverage -l ./xtests/tdpr_retry.txt -permit_unmatched_virtual_intf -sv_seed 0 -t ps -wlf ./xtests/tdpr_retry.wlf xdrs 
+#               Metric      Items   Covered%     Inc%
+# 
+#  Cover Groups/Points       4/12     100.00     0.00  ********************|
+#      CoverDirectives         28     100.00     0.00  ********************|
+#           Statements        167     100.00     0.00  ********************|
+#             Branches        342     100.00     0.00  ********************|
+#          Expressions         96     100.00     0.00  ********************|
+#           Conditions         32     100.00     0.00  ********************|
+#               States         48     100.00     0.00  ********************|
+#          Transitions        100     100.00     0.00  ********************|
+#         AssertPasses         51     100.00     0.00  ********************|
+#       FecExpressions        120     100.00     0.00  ********************|
+#        FecConditions         44     100.00     0.00  ********************|
+#      AssertSuccesses         51     100.00     0.00  ********************|
+# 
+# No further improvement to coverage.
+# 
+# Ranking summary:
+# 	Total CPU time = 5.08
+# 	Total SIM time = 1140006000.00 ps
+# 	Test order = coverage/tdpr_demo.ucdb coverage/tdpr_random_28.ucdb coverage/tdpr_simple.ucdb coverage/tdpr_isolation.ucdb coverage/tdpr_readback.ucdb coverage/tdpr_retry.ucdb
+# 	Non-contributing Tests = coverage/tdpr_random_92.ucdb coverage/tdpr_random_86.ucdb coverage/tdpr_random_76.ucdb

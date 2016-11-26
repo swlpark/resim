@@ -1,0 +1,124 @@
+/*******************************************************************************   
+ * Copyright (c) 2012, Lingkan Gong                                                
+ * All rights reserved.                                                            
+ *                                                                                 
+ * Redistribution and use in source and binary forms, with or without              
+ * modification, are permitted provided that the following conditions are met:     
+ *                                                                                 
+ *  * Redistributions of source code must retain the above copyright notice,       
+ *    this list of conditions and the following disclaimer.                        
+ *                                                                                 
+ *  * Redistributions in binary form must reproduce the above copyright notice,    
+ *    this list of conditions and the following disclaimer in the documentation    
+ *    and/or other materials provided with the distribution.                       
+ *                                                                                 
+ *  * Neither the name of the copyright holder(s) nor the names of its             
+ *    contributor(s) may be used to endorse or promote products derived from this    
+ *    software without specific prior written permission.                          
+ *                                                                                 
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED   
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE          
+ * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDERS BE LIABLE FOR ANY           
+ * DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES      
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;    
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND     
+ * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT      
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS   
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.                    
+ *                                                                                 
+*******************************************************************************/   
+
+`ifndef LPFILTER_EI_SVH
+`define LPFILTER_EI_SVH
+
+class lpfilter_ei extends rsv_error_injector#(virtual interface my_if);
+
+	// configuration table and parameters
+	`ovm_component_utils_begin(lpfilter_ei)
+	`ovm_component_utils_end
+
+	// new - constructor
+	function new (string name, ovm_component parent);
+		super.new(name, parent);
+	endfunction : new
+
+	// Define your own tasks to inject errors.
+	// You should not change the name or the prototype of these tasks.
+	// Possible injections include:
+	//
+	//     x, all-0, all-1, negate, random, no-change
+
+	extern virtual protected task inject_to_static_module(rsv_ei_trans tr);
+	extern virtual protected task inject_to_reconfigurable_module(rsv_ei_trans tr);
+	extern virtual protected task inject_to_internal_signals(rsv_ei_trans tr);
+	extern virtual protected task end_of_injecting_errors(rsv_ei_trans tr);
+	
+endclass : lpfilter_ei
+
+task lpfilter_ei::inject_to_static_module (rsv_ei_trans tr);
+	// Default static error injection
+
+	// Enable the static error injection and wait until the 
+	// ei_vi.reconf_phase signal is asserted 
+
+	ei_vi.sei_en <= 1'b1;
+	@(posedge ei_vi.reconf_phase);
+	
+	// Drive undefined X values to all output signals
+	// of the reconfigurable module.
+
+	sei_vi.rc_ackn          <= 'hx;
+	sei_vi.p_prdy           <= 'hx;
+	sei_vi.p_data           <= 'hx;
+	sei_vi.c_crdy           <= 'hx;
+	sei_vi.c_cerr           <= 'hx;
+
+
+endtask : lpfilter_ei::inject_to_static_module
+
+task lpfilter_ei::inject_to_reconfigurable_module (rsv_ei_trans tr);
+	// User-defined dynamic error injection
+
+	// Enable the dynamic error injection and wait until the 
+	// ei_vi.reconf_phase signal is asserted 
+
+	ei_vi.dei_en <= 1'b1;
+	@(posedge ei_vi.reconf_phase);
+	
+	// Drive undefined X values to all input signals
+	// of the reconfigurable module.
+	
+	dei_vi.clk              <= 'hx;
+	dei_vi.rstn             <= 'hx;
+	dei_vi.rc_reqn          <= 'hx;
+	dei_vi.p_crdy           <= 'hx;
+	dei_vi.p_cerr           <= 'hx;
+	dei_vi.c_prdy           <= 'hx;
+	dei_vi.c_data           <= 'hx;
+	
+endtask : lpfilter_ei::inject_to_reconfigurable_module
+
+task lpfilter_ei::inject_to_internal_signals (rsv_ei_trans tr);
+	// User-defined internal error injection
+	
+	// Pass non-default parameter to the "rsv_iei_hdl_state" API. 
+	//     iei_sig_type = none, zero OR. x   
+	//     iei_mem_type = none, zero OR. rand
+
+	logic [7:0] old_rmid = ei_vi.active_module_id;
+	logic [7:0] new_rmid = tr.rmid;
+	
+	`rsv_execute_tcl(interp, $psprintf("ReSim::rsv_iei_hdl_state %s rm%0d x zero",rr_inst,old_rmid))
+	
+endtask : lpfilter_ei::inject_to_internal_signals
+
+task lpfilter_ei::end_of_injecting_errors (rsv_ei_trans tr);
+	// Default error injection clean up routine
+	
+endtask : lpfilter_ei::end_of_injecting_errors
+
+`endif // LPFILTER_EI_SVH
+
+
+

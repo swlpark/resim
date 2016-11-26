@@ -1,0 +1,34 @@
+// ==== Name: ./artifacts/sbt/my_region_rm1.txt (Simulation-only Bitstream)
+// ==== Time: 11:26:48, September 13, 2016 
+@0 AA995566 // SYNC
+@1 20000000 // Type 1 Nop
+@2 30000001 // Type 1 Wr CRC
+@3 A33C265B // Signature
+@4 30002001 // Type 1 Wr FAR
+@5 00010000 // RRid:0x00, RMid:0x01, MNA:0x0000
+@6 30008001 // Type 1 Wr CMD
+@7 00000001 // WCFG
+@8 30004000 // Type 1 Wr FDRI
+@9 50000010 // Type 2 Wr 16 Words
+@a 083CC8AF // SBT Word 0
+@b 00000000 // SBT Word 1
+@c 00000000 // SBT Word 2
+@d 00000000 // SBT Word 3
+@e 7784BCA6 // SBT Word 4
+@f 00000000 // SBT Word 5
+@10 00000000 // SBT Word 6
+@11 00000000 // SBT Word 7
+@12 3687F441 // SBT Word 8
+@13 00000000 // SBT Word 9
+@14 00000000 // SBT Word 10
+@15 00000000 // SBT Word 11
+@16 EA03A613 // SBT Word 12
+@17 00000000 // SBT Word 13
+@18 00000000 // SBT Word 14
+@19 00000000 // SBT Word 15
+@1a 20000000 // Type 1 Nop
+@1b 20000000 // Type 1 Nop
+@1c 30008001 // Type 1 Wr CMD
+@1d 0000000D // DESYNC
+@1e 20000000 // Type 1 Nop
+@1f 20000000 // Type 1 Nop
