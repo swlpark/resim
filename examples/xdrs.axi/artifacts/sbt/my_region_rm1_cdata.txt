@@ -1,0 +1,18 @@
+// ==== Name: ./artifacts/sbt/my_region_rm1_cdata.txt (Simulation-only Bitstream, Configuration Data Section)
+// ==== Time: 19:38:52, January 11, 2017 
+@0 7FDDA4B6
+@1 00000000
+@2 00000000
+@3 00000000
+@4 AB5AB183
+@5 00000000
+@6 00000000
+@7 00000000
+@8 3A87AE4F
+@9 00000000
+@a 00000000
+@b 00000000
+@c 02FEA467
+@d 00000000
+@e 00000000
+@f 00000000

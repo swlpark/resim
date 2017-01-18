@@ -1,0 +1,51 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/lawpark/Documents/git_project/resim/examples/xdrs.axi
+vcdn_axi_bfm_0
+!s10a 1481644842
+!s110 1484592812
+!i10b 1
+!s100 O`6?`B^HPN8_5fTPnFgZP2
+IM>iF<2VGbKT6YYR5MF1`n1
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1481644842
+8./xdrs/cdn_axi_bfm_0.v
+F./xdrs/cdn_axi_bfm_0.v
+L0 61
+Z2 OL;L;10.4c;61
+r1
+!s85 0
+31
+!s108 1484592812.000000
+!s107 ./xdrs/cdn_axi4_example_test.v|./xdrs/cdn_axi_bfm_0.v|
+!s90 -reportprogress|300|-work|xil_defaultlib|-64|-incr|./xdrs/cdn_axi_bfm_0.v|./xdrs/cdn_axi4_example_test.v|
+!i113 0
+Z3 o-work xil_defaultlib -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+vglbl
+!s110 1484593989
+!i10b 1
+!s100 g=dL3UKAkhNRkQ:7=fPzF1
+I`PQi[1`MUIcWSZ0DLAPQ<3
+R1
+R0
+w1464876296
+8./xdrs/glbl.v
+F./xdrs/glbl.v
+L0 6
+R2
+r1
+!s85 0
+31
+!s108 1484593989.000000
+!s107 ./xdrs/glbl.v|
+!s90 -reportprogress|300|-work|xil_defaultlib|./xdrs/glbl.v|
+!i113 0
+R3

@@ -1,0 +1,17 @@
+# Reading C:/modeltech64_10.1c/tcl/vsim/pref.tcl 
+# //  ModelSim SE-64 10.1c Jul 28 2012 
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+pwd
+# C:/Users/lawpark/Documents/resim-simulating-partial-reconfiguration-master/examples/xdrs.quickstart
+ls
+# README               simulate_mti.do      start.bat      transcript   xdrs          
+# auto_generation.tcl  simulate_mti_ase.do  start_ase.bat  wave_mti.do  xtests        
+source simulate_mti.do
+# Cannot open macro file: settings.do
